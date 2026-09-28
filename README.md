@@ -4,9 +4,10 @@ A reanalysis of the WAVE Covenant University Hub's published survey of cassava
 mosaic begomoviruses across South-West and North-Central Nigeria, 2015 and 2017.
 
 The dataset and the authors' own Python notebook are public under CC BY 4.0.
-This repository does two things: it recomputes the published descriptive
-results independently in R, and it draws one relationship the original notebook
-reports the two halves of but never puts together.
+This repository recomputes the published descriptive results independently in
+R, draws one relationship the original notebook reports the two halves of but
+never puts together, and sets the laboratory results against what a walking
+survey can actually see.
 
 **Nothing here corrects the original work.** The published numbers reproduce
 exactly. The addition is a question, not a finding against anyone.
