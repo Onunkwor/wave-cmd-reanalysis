@@ -100,6 +100,46 @@ spatial aggregation, or mostly something about the vector's own dynamics.
 That is a modelling question rather than a survey one, and it is the reason
 this repository exists.
 
+## What a visual survey can and cannot see
+
+`CMD_Incidence` counts plants showing symptoms. The Lab sheet tests plants for
+the viruses themselves. Setting one against the other:
+
+| | virus detected | no virus | total | % positive |
+|---|---|---|---|---|
+| showed symptoms | 651 | 66 | 717 | 90.8% |
+| looked healthy | **228** | 372 | 600 | **38.0%** |
+
+**228 of the 879 infected cassava plants, 25.9%, showed no symptoms at all.**
+Of the 600 plants that looked healthy, 38.0% were carrying virus. In the other
+direction, 9.2% of symptomatic plants had no virus detected.
+
+It also moved between the two surveys: 14.9% of infections were symptomless in
+2015 against **39.8%** in 2017.
+
+![visible versus actual](figures/visible_vs_actual.png)
+
+Asked at field level, using the Lab sheet: of 138 fields with **no visible
+symptoms at all** where at least one plant was tested, **50 (36.2%) turned up a
+virus** on one or two plants.
+
+Ten of the 27 non-cassava plants sampled (37.0%) also carried a cassava mosaic
+virus.
+
+### Two caveats, both important
+
+The tested plants are **not** a random sample. Symptomatic plants were
+collected preferentially: 54.4% of tested plants had symptoms against a mean
+visual incidence of 23.6% across the 512 fields, an enrichment of **2.31x**.
+Among infected plants the sample therefore over-represents the visible ones, so
+every symptomless figure above is a **floor, not an estimate**.
+
+The field-level question cannot be asked of the `Field_Lab` sheet, which
+contains **no `Negative` rows at all** (0 of 496) and so appears to list only
+fields where something was found. Using it would have produced "135 of 135
+clean fields had virus", which is a selection artefact. The Lab sheet records
+negatives and is used instead.
+
 ## Layout
 
 ```
@@ -107,7 +147,8 @@ R/00_download.R        fetch from Mendeley, verify sha256
 R/01_load.R            load three sheets, map states to zones, assert structure
 R/02_reproduce.R       recompute the published descriptives
 R/03_route_vs_vector.R the relationship above, plus figures
-run_all.R              runs all four in order
+R/04_visible_vs_actual.R symptoms against laboratory results
+run_all.R              runs all five in order
 ```
 
 ## Licence
