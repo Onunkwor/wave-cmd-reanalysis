@@ -71,8 +71,9 @@ related. Doing so:
 
 Monotonic, and not an artefact of pooling: Spearman rho is **+0.297** overall,
 **+0.394** in 2015 and **+0.251** in 2017, **+0.265** in the South West and
-**+0.221** in North Central. Every one of the thirteen states is positive
-(0.01 to 0.57).
+**+0.221** in North Central. All twelve states where a correlation can be
+computed are positive (0.01 to 0.57). The thirteenth, FCT, has three diseased
+fields, below the minimum the script will compute on.
 
 ![route vs whitefly count](figures/route_vs_whitefly.png)
 

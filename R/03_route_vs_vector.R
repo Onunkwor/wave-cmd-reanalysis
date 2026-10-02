@@ -21,8 +21,11 @@ groups <- bind_rows(
     ungroup() |> transmute(group = paste("year", Year), n, rho),
   dis |> group_by(Zone) |> group_modify(~ tibble(n = nrow(.x), rho = sp(.x))) |>
     ungroup() |> transmute(group = Zone, n, rho),
+  # every state, not only the well-sampled ones: filtering them out silently
+  # would overstate how consistent the relationship is
   dis |> group_by(State) |> group_modify(~ tibble(n = nrow(.x), rho = sp(.x))) |>
-    ungroup() |> filter(n >= 20) |> transmute(group = State, n, rho)
+    ungroup() |> arrange(desc(n)) |>
+    transmute(group = paste0(State, if_else(n >= 20, "", " (small n)")), n, rho)
 )
 cat("\n== Spearman correlation: whitefly count vs whitefly-borne share ==\n")
 print(as.data.frame(groups), row.names = FALSE, digits = 3)
